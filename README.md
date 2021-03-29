@@ -3,8 +3,11 @@
 Development of python package to reconstruct indoor and outdoor environments with diverse texture contrasts using Oriented FAST and Rotated Brief (ORB) feature detector and descriptor, FLANN for matching and RANSAC for outlier removal and Optical flow and PnP (DLT and Levenberg) for estimating the pose of robot<br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/map.png" width="400" height="400" align="center"/><br><br>
 FEATURE EXTRACTION<br><br>
-Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF<br><br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="700" height="400" align="center"/><br><br>
+Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF. Below image shows ORB extraction<br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/feature%20extraction.png" width="700" height="300" align="center"/><br><br>
+FEATURE EXTRACTION<br><br>
+Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="700" height="300" align="center"/><br><br>
 Various Matchers: BFMatcher, FLANN<br>
 Tracking: KL-based Optical Flow<br>
 Rotational and Traslational vector approximation: PnP<br><br>
