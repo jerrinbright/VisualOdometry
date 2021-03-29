@@ -17,8 +17,8 @@ Camera Projection Matrix:<br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection_expanded.jpg" width="700"/><br><br>
 
 Rotational and Traslational vector approximation: PnP<br><br>
-PnP stamds for Perspective-n-points, where n=3 here.<br>
-The 3 point clouds are taken as landmarks and are obtained by Triangulation. <br>
+PnP stands for Perspective-n-points, where n=3 here.<br>
+The 3 point clouds are taken as landmarks and are obtained by Triangulation. <br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/pnp.jpg" width="700"/><br><br>
 
 PnP is a 2 step process:<br>
