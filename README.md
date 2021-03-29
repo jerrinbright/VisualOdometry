@@ -7,8 +7,8 @@ Various Matchers: BFMatcher, FLANN<br>
 Tracking: KL-based Optical Flow<br>
 Rotational and Traslational vector approximation: PnP<br><br>
 
-Camera Projection Matrix:<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection.jpg" width="700"/><br><br>
+Camera Projection Matrix:<br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection.jpg" width="700"/><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection_expanded.jpg" width="700"/><br><br>
 
 PnP stamds for Perspective-n-points, where n=3 here.<br>
