@@ -4,7 +4,7 @@ Development of python package to reconstruct indoor and outdoor environments wit
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/map.png" width="400" height="400" align="center"/><br><br>
 FEATURE EXTRACTION<br><br>
 Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF<br><br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="700" align="center"/><br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="700" height="400" align="center"/><br><br>
 Various Matchers: BFMatcher, FLANN<br>
 Tracking: KL-based Optical Flow<br>
 Rotational and Traslational vector approximation: PnP<br><br>
