@@ -44,7 +44,14 @@ PnP is a 2 step process:<br>
 _, rvec, tvec, inliers = cv2.solvePnPRansac(pnp_objP , pnp_cur, K, None)
 ```    
 <br><br>
-Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. 
+Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. <br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/map.png" width="400" height="400" align="center"/><br><br>
 
+REFERENCES:<br>
+1.) <br>
+2.) <br>
+3.) <br>
+
+<br>
 THE END!
+
