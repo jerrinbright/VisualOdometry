@@ -48,9 +48,9 @@ Once Rotational and Traslational vector is obtained, trajectory can be plotted i
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/map.png" width="400" height="400" align="center"/><br><br>
 
 REFERENCES:<br>
-1.) <br>
-2.) <br>
-3.) <br>
+1.) https://github.com/felixchenfy/Monocular-Visual-Odometry<br>
+2.) https://github.com/anubhavparas/visual-odometry<br>
+3.) https://github.com/polygon-software/python-visual-odometry<br>
 
 <br>
 THE END!
