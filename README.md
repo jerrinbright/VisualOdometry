@@ -5,18 +5,29 @@ Development of python package to reconstruct indoor and outdoor environments wit
 FEATURE EXTRACTION<br><br>
 Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF. Below image shows ORB extraction with and without size for the set 1000 feature points<br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/feature%20extraction.png" width="1000" height="300" align="center"/><br><br>
-FEATURE EXTRACTION<br><br>
-Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br>
 ```sh
-npm install --production
-NODE_ENV=production node app
+orb = cv2.ORB_create(nfeatures=500)
+kp1, desc1 = orb.detectAndCompute(img1, None)
+kp2, desc2 = orb.detectAndCompute(img2, None)
 ```
 <br><br>
-
+FEATURE MATCHING<br><br>
+Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br><br>
+```sh
+search_params = dict(checks=100)
+index_params = dict(algorithm=6, table_number=6, key_size=12, multi_probe_level=2)
+flann = cv2.FlannBasedMatcher(index_params, search_params)
+matches = flann.knnMatch(desc1,desc2,k=2)
+```
+<br><br>
 FEATURE TRACKING<br><br>
 KLT-based Optical Flow algorithm<br><br>
-
+```sh
+lk_params = dict( winSize  = (21,21), maxLevel = 3, criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01))
+p2, st, err = cv2.calcOpticalFlowPyrLK(img_1, img_2, p1, None, **lk_params)
+```    
+<br><br>
 Camera Projection Matrix:<br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection.jpg" width="700"/><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection_expanded.jpg" width="700"/><br><br>
@@ -29,5 +40,8 @@ The 3 point clouds are taken as landmarks and are obtained by Triangulation. <br
 PnP is a 2 step process:<br>
 1.) Direct Linear Transform (DLT)- To estimate approximate Rotational and Traslational vector<br>
 2.) Levenberg Marquardt Algorithm- To optimize the Rotational and Traslational vector obtained from DLT by reducing the reprojection error<br>
-
+```sh
+_, rvec, tvec, inliers = cv2.solvePnPRansac(pnp_objP , pnp_cur, K, None)
+```    
+<br><br>
 Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. 
