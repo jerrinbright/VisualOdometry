@@ -7,7 +7,12 @@ Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF. Below image shows ORB ex
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/feature%20extraction.png" width="1000" height="300" align="center"/><br><br>
 FEATURE EXTRACTION<br><br>
 Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br>
+```sh
+npm install --production
+NODE_ENV=production node app
+```
+<br><br>
 
 FEATURE TRACKING<br><br>
 KLT-based Optical Flow algorithm<br><br>
