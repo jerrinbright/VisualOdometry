@@ -4,7 +4,7 @@ Development of python package to reconstruct indoor and outdoor environments wit
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/map.png" width="400" height="400" align="center"/><br><br>
 FEATURE EXTRACTION<br><br>
 Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF. Below image shows ORB extraction with and without size for the set 1000 feature points<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/feature%20extraction.png" width="1000" height="300" align="center"/><br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/feature%20extraction.png" width="1000" height="300" align="center"/><br>
 ```sh
 orb = cv2.ORB_create(nfeatures=500)
 kp1, desc1 = orb.detectAndCompute(img1, None)
@@ -13,7 +13,7 @@ kp2, desc2 = orb.detectAndCompute(img2, None)
 <br><br>
 FEATURE MATCHING<br><br>
 Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br>
 ```sh
 search_params = dict(checks=100)
 index_params = dict(algorithm=6, table_number=6, key_size=12, multi_probe_level=2)
@@ -22,7 +22,7 @@ matches = flann.knnMatch(desc1,desc2,k=2)
 ```
 <br><br>
 FEATURE TRACKING<br><br>
-KLT-based Optical Flow algorithm<br><br>
+KLT-based Optical Flow algorithm<br>
 ```sh
 lk_params = dict( winSize  = (21,21), maxLevel = 3, criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01))
 p2, st, err = cv2.calcOpticalFlowPyrLK(img_1, img_2, p1, None, **lk_params)
@@ -45,3 +45,6 @@ _, rvec, tvec, inliers = cv2.solvePnPRansac(pnp_objP , pnp_cur, K, None)
 ```    
 <br><br>
 Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. 
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/map.png" width="400" height="400" align="center"/><br><br>
+
+THE END!
