@@ -10,7 +10,7 @@ orb = cv2.ORB_create(nfeatures=500)
 kp1, desc1 = orb.detectAndCompute(img1, None)
 kp2, desc2 = orb.detectAndCompute(img2, None)
 ```
-<br>
+<br><br>
 FEATURE MATCHING<br><br>
 Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br>
@@ -20,7 +20,7 @@ index_params = dict(algorithm=6, table_number=6, key_size=12, multi_probe_level=
 flann = cv2.FlannBasedMatcher(index_params, search_params)
 matches = flann.knnMatch(desc1,desc2,k=2)
 ```
-<br>
+<br><br>
 FEATURE TRACKING<br><br>
 KLT-based Optical Flow algorithm<br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br>
@@ -28,7 +28,7 @@ KLT-based Optical Flow algorithm<br>
 lk_params = dict( winSize  = (21,21), maxLevel = 3, criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01))
 p2, st, err = cv2.calcOpticalFlowPyrLK(img_1, img_2, p1, None, **lk_params)
 ```
-<br>
+<br><br>
 Camera Projection Matrix:<br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection.jpg" width="700"/><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/projection_expanded.jpg" width="700"/><br><br>
