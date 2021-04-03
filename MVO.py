@@ -1,6 +1,11 @@
 import numpy as np
 import cv2
 import timeit
+import csv
+
+#sift- 869.40s, max error- 318.23 
+#fast- 246.79s, total error- 298.23
+#surf- 738.30s, total error- 219.80
 
 #returning the absolute scale 
 def getAbsoluteScale(f, frame_id):
@@ -37,12 +42,12 @@ def featureDetection():
 
 #Ground truth from KITTI dataset
 def getTruePose():
-    file = 'C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/VSLAM/data_odometry_poses/dataset/poses/01.txt'
+    file = '00.txt'
     return np.genfromtxt(file, delimiter=' ',dtype=None)
 
 #Frames of Left camera from KITTI dataset 
 def getImages(i):
-    return cv2.imread('C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/VSLAM/data_odometry_gray/dataset/sequences/01/image_1/{0:06d}.png'.format(i), 0)
+    return cv2.imread('image_1/{0:06d}.png'.format(i), 0)
 
 #Declaring the camera parameters
 def getK():
@@ -67,6 +72,19 @@ else:
     #copy frame i+1 simply to gray_2
     gray_2 = img_2
 
+# Resolutions for the video
+size = img_1.shape[:2]
+frame_width = size[1]
+frame_height = size[0]
+size = (frame_width, frame_height)
+
+#printing the frame to the video
+res_vid = cv2.VideoWriter('vid_fast.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
+res_traj = cv2.VideoWriter('traj_fast.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
+
+#CSV to save the data
+filename = "mvo_fast.csv"
+
 #find the detector
 detector = featureDetection()
 #storing the features from fast of frame i
@@ -79,6 +97,7 @@ p1, p2   = featureTracking(gray_1, gray_2, p1)
 fc = 718.8560
 pp = (607.1928, 185.2157)
 K  = getK()
+font = cv2.FONT_HERSHEY_PLAIN
 
 #RANSAC and essential matrix is found
 E, mask = cv2.findEssentialMat(p2, p1, fc, pp, cv2.RANSAC,0.999,1.0); 
@@ -86,7 +105,7 @@ E, mask = cv2.findEssentialMat(p2, p1, fc, pp, cv2.RANSAC,0.999,1.0);
 _, R, t, mask = cv2.recoverPose(E, p2, p1,focal=fc, pp = pp);
 
 #initialize some parameters
-MAX_FRAME     = 4000
+MAX_FRAME     = 4540
 MIN_NUM_FEAT  = 1500
 preFeature = p2
 preImage   = gray_2
@@ -135,9 +154,9 @@ for numFrame in range(2, MAX_FRAME):
 
     #Visualization of the trajectory
     #estimated pose is initialized
-    draw_x, draw_y = int(t_f[0]), int(t_f[2]) + 500;
+    draw_x, draw_y = int(t_f[0])+300, int(t_f[2]) + 100;
     #true pose is initialized
-    draw_tx, draw_ty = int(truth_x), int(truth_z) + 500
+    draw_tx, draw_ty = int(truth_x)+300, int(truth_z) + 100
     #current error using the previous and current pose is calculated using RMSE
     curError = np.sqrt((t_f[0]-truth_x)**2 + (t_f[1]-truth_y)**2 + (t_f[2]-truth_z)**2)
     #printing the current error
@@ -152,11 +171,23 @@ for numFrame in range(2, MAX_FRAME):
     #drawing rectangle to display the camera co-ordinates
     cv2.rectangle(traj, (10, 30), (550, 50), (0,0,0), cv2.FILLED);
     #initializing the x,y,z of the camera to be printed
-    text = "Coordinates: x ={0:02f}m y = {1:02f}m z = {2:02f}m".format(float(t_f[0]), float(t_f[1]), float(t_f[2]));
+    text = "Coordinates: x ={0:02f}m y = {1:02f}m z = {2:02f}m".format(round(float(t_f[0]),2), round(float(t_f[1]),2), round(float(t_f[2]),2));
     #printing the co-ordinates in the trajectory interface
     cv2.putText(traj, text, (10,50), cv2.FONT_HERSHEY_PLAIN, 1, (255,255,255), 1, 8);
     #showing the results of the trajectory interface
+    res_traj.write(traj)
     cv2.imshow( "Trajectory", traj );
+    #parameters to be displayed in csv
+    [a] = curError
+    nos = [numFrame, a, len(curFeature), len(preFeature), t_f[0], t_f[1], t_f[2]]
+    #writing of the data in the CSV file as mentioned above in the 'nos' variable
+    with open(filename, 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(nos)
+    f_img = cv2.drawKeypoints(curImage, kp1, curImage, flags=0)
+    cv2.putText(f_img, "FAST" +" Frame: "+ str(numFrame)+ "  Features="+ str(round(len(curFeature), 2)), (10, 50), font, 2, (0, 0, 255), 3)
+	#res_vid.write(f_img)
+    cv2.imshow("Result", f_img);
     #shortcut to terminate the code in mid-wa
     k = cv2.waitKey(1) & 0xFF
     #ESC key to terminate the trjectory interface
@@ -166,7 +197,7 @@ for numFrame in range(2, MAX_FRAME):
 #printing the maximum error
 print('Maximum Error: ', maxError)
 #saving the map/ trajectory image 
-cv2.imwrite('map.png', traj);
+cv2.imwrite('map_fast.png', traj);
 #stoping the timer
 stop = timeit.default_timer()
 #printing the total time of execution
