@@ -6,9 +6,9 @@ import time
 import csv
 
 #directory in which all the relavent codes are located
-dataset_path = "C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/FEATURES"
+#dataset_path = "C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/FEATURES"
 #video link in the directory mentioned above
-cap = cv2.VideoCapture(os.path.join(dataset_path, 'vid/dji.mp4'))
+cap = cv2.VideoCapture('videos/live.mp4')
 #display frame width and height
 frame_width = int(cap.get(3)) 
 frame_height = int(cap.get(4)) 
@@ -32,8 +32,15 @@ result = cv2.VideoWriter('orb.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
 filename = "orb.csv"
 
 while(cap.isOpened()):
-	#taking one frame per iteration
+    #taking one frame per iteration
     ret, frame = cap.read()
+        
+    #kernel = np.ones((5,5),np.float32)/25
+    #frame = cv2.filter2D(frame,-1,kernel)
+    #frame = cv2.GaussianBlur(frame,(5,5),0)
+    #frame = cv2.bilateralFilter(frame,9,75,75)
+    #frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+
     #starting time to find the time taken for feature detection in a particular frame
     start_time = time.time()
     #fps calculation
@@ -42,7 +49,7 @@ while(cap.isOpened()):
     i = i + 1
     #checking if a frame is present
     if ret == True:       
-    	#converitng the rgb image to grayscale
+        #converitng the rgb image to grayscale
         img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 # START OF FEATURE DETEECTION
@@ -84,7 +91,7 @@ while(cap.isOpened()):
     
     #checking from 2nd frame because the first fram edoesnt have a previous frame to compute
     if (i >1):
-    	#initializing the BF matcher using NORM_HAMMING
+        #initializing the BF matcher using NORM_HAMMING
         bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
 
         #convertion of the previous frame into grayscale
@@ -102,7 +109,7 @@ while(cap.isOpened()):
         #printing the number of features matched from the extracted features in the earlier step
         print(len(matches), len(best_matches))
     #storing of the current frame into a variable so that it can be used as prev frame when matching is done
-    prev_frame = img
+    prev_frame = img#cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
 
     #writing of the data in the CSV file as mentioned above in the 'nos' variable
     with open(filename, 'a') as f:
