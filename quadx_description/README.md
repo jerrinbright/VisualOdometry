@@ -12,8 +12,9 @@ Progress Log:
 Exported the drone model from Solidworks platform to URDF.<br><br>
 <img src="https://github.com/jerrie-bright/QuadX/blob/main/img/sw_assembly.png" width="2000"/>
 
-<br><br>
+<br>
 Added sensors including 3D LIDAR, Kinect, IMU.<br><br>
 <img src="https://github.com/jerrie-bright/QuadX/blob/main/img/sensors.jpg" width="2000"/>
 
-<br> Currently working on the mapping of the drone in unknown environmnents.
+<br> Solved issues with the physics of the drone in the gazebo environment.
+<br><br> Currently working on the mapping of the drone in unknown environmnents.
