@@ -1,0 +1,17 @@
+<launch>
+	
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find quadx)/worlds/room.world"/>
+	</include>
+	
+	<group ns="quadx">		
+		<param name="robot_description" command="$(find xacro)xacro '$(find quadx)/urdf/quadx.xacro'" />		
+		<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model quadx" />		
+		<rosparam file="$(find quadx)/config/quadx_control.yaml" command="load" ns="/quadx" />		
+		<node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--namespace=/quadx joint_state_controller joint_motor_controller" />		
+		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+			<param name="publish_frequency" type="double" value="5.0" />
+		</node>
+	</group>
+
+</launch>
