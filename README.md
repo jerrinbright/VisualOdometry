@@ -1,7 +1,8 @@
 # 3D Pose Estimation using Stereo Visual Odometry 
 
-Development of python package to reconstruct indoor and outdoor environments with diverse texture contrasts using Oriented FAST and Rotated Brief (ORB) feature detector and descriptor, FLANN for matching and RANSAC for outlier removal and Optical flow and PnP (DLT and Levenberg) for estimating the pose of robot. Additionally, pre-processing including bilateral filtering is done to enhance the robustness of the extraction thereby reducing the reprojection error significantly.<br><br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/maps/orb.png" width="400" height="400" align="center"/>
+Development of python package to reconstruct indoor and outdoor environments with diverse texture contrasts using Oriented FAST and Rotated Brief (ORB) feature detector and descriptor, FLANN for matching and RANSAC for outlier removal and Optical flow and PnP (DLT and Levenberg) for estimating the pose of robot. Additionally, pre-processing including bilateral filtering is done to enhance the robustness of the extraction thereby reducing the reprojection error significantly.
+
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/flowchart.png" width="400" height="400" align="center"/>
 
 ## FEATURE EXTRACTION
 Experimented with ORB, FAST, SHI-TOMASI, SIFT and SURF. Below image shows ORB extraction with and without size for the set 1000 feature points<br>
