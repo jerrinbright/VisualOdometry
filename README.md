@@ -64,4 +64,5 @@ Once Rotational and Traslational vector is obtained, trajectory can be plotted i
 2.) https://github.com/anubhavparas/visual-odometry<br>
 3.) https://github.com/polygon-software/python-visual-odometry<br>
 
+<br>
 Refer my <a href="https://jbright.tech/#projects"> website</a> for more info about visual odometry!
