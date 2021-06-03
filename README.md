@@ -1,4 +1,4 @@
-# 3D Pose Estimation using Stereo Visual Odometry 
+# 3D Pose Estimation using Mono/Stereo Visual Odometry 
 
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/videos/vo.gif" width="500" height="300" align="center"/>
 
