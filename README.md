@@ -1,4 +1,4 @@
-# VISUAL-ODOMETRY
+# VISUAL ODOMETRY
 Development of python package to reconstruct indoor and outdoor environments with diverse texture contrasts using Oriented FAST and Rotated Brief (ORB) feature detector and descriptor, FLANN for matching and RANSAC for outlier removal and Optical flow and PnP (DLT and Levenberg) for estimating the pose of the robot.
 
 ## HOW TO USE THIS REPO
@@ -12,7 +12,7 @@ For Example, type ``` python3 main.py ORB bilateralFiltering ``` to run monocula
 
 ## EVALUATION
 
-- Clone the EVO Repo (<a href="https://github.com/MichaelGrupp/evo" here</a>).
+- Clone the EVO Repo (<a href="https://github.com/MichaelGrupp/evo"> here </a>).
 - In the source EVO Repo local folder, run ```pip install --editable . --upgrade --no-binary evo```
 - Proper functioning of all EVO repo function requires:
 numpy
