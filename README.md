@@ -1,5 +1,11 @@
 # VISUAL ODOMETRY
-Development of python package to reconstruct indoor and outdoor environments with diverse texture contrasts using Oriented FAST and Rotated Brief (ORB) feature detector and descriptor, FLANN for matching and RANSAC for outlier removal and Optical flow and PnP (DLT and Levenberg) for estimating the pose of the robot.
+Development of python package/ tool for mono and stereo visual odometry. 
+
+# PROS OF THE TOOL 
+
+- Without changing the contents of the code, the functionality of the codes can be adjusted. That's any type of feature extractor/ matcher/ pre-processing technique/ outlier removal technique can be used typing in the command line.  
+- Automatic pose file generation for KITTI dataset for comparing with the EVO evaluation repo. 
+- Scripts are split based on functionality for ease of understanding of the users.
 
 ## HOW TO USE THIS REPO?
 
@@ -24,6 +30,14 @@ There are a lot of ways to evaluate a trajectory estimated. I have used EVO pack
 - Pass the ```pose.txt``` into the ```main.py``` file inside ```kitti_ground``` folder in this repo.
 - Then, a new ```pose_1.txt``` file will be generated with proper delimiters set. 
 - Now, you can use this alongside the EVO repo mentioned above for comparison.
+
+## HOW MANY METHODS ARE ADAPTED?
+
+Currently, six types of extractors, two types of matchers, 3 types of pre-processing techniques are adapted in this repo. 
+
+EXTRACTORS: ORB, SIFT, SURF, BRISK, KAZE, AKAZE
+MATCHERS: FLANN, BFMatcher
+PRE-PROCESSING: Guassian Blur, Bilateral Filtering, 2D Image Filtering
 
 ## FUTURE WORK
 
