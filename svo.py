@@ -4,23 +4,22 @@ import cv2
 
 #fig = plt.figure()
 #ax = plt.axes(projection='3d')
-
 #Camera calibration parameters
 def getK():
     return np.array([[7.188560000000e+02, 0, 6.071928000000e+02], [0, 7.188560000000e+02, 1.852157000000e+02], [0, 0, 1]])
 
-#Ground truth taken from KITTI dataset
+#gGound truth taken from KITTI dataset
 def getTruePose():
-    file = '00.txt'
+    file = 'C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/VSLAM/data_odometry_poses/dataset/poses/00.txt'
     return np.genfromtxt(file, delimiter=' ',dtype=None)
 
 #Left camera frame from the stereo setup
 def getLeftImage(i):
-    return cv2.imread('image_0/{0:06d}.png'.format(i), 0)
+    return cv2.imread('C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/VSLAM/data_odometry_gray/dataset/sequences/00/image_0/{0:06d}.png'.format(i), 0)
 
 #Right camera frame from the stereo setup
 def getRightImage(i):
-    return cv2.imread('image_1/{0:06d}.png'.format(i), 0)
+    return cv2.imread('C:/Users/jerri/OneDrive/Desktop/Personal/Interships/A2A/VSLAM/data_odometry_gray/dataset/sequences/00/image_1/{0:06d}.png'.format(i), 0)
 
 #Remove duplicate points from new query points
 def removeDuplicate(queryPoints, refPoints, radius=10):
@@ -103,7 +102,7 @@ def playImageSequence(left_img, right_img, K):
     #storing the true pose values 
     truePose = getTruePose()
     #interface for displaying the trajectory
-    traj = np.zeros((600, 600, 3), dtype=np.uint8);
+    traj = np.zeros((600, 600, 3), dtype=np.uint8)
     maxError = 0
     for i in range(0, 5000):
         print('image: ', i)
@@ -142,7 +141,7 @@ def playImageSequence(left_img, right_img, K):
             print(z)       
         reference_img = curImage
         #storing the estimated trajectory
-        draw_x, draw_y = int(tvec[0]) + 300, int(tvec[2]) + 100;
+        draw_x, draw_y = int(tvec[0]) + 300, int(tvec[2]) + 100
         #storing the ground truth trajectory
         true_x, true_y = int(truePose[i][3]) + 300, int(truePose[i][11]) + 100
         curError = np.sqrt((tvec[0]-truePose[i][3])**2 + (tvec[1]-truePose[i][7])**2 + (tvec[2]-truePose[i][11])**2)
@@ -156,26 +155,26 @@ def playImageSequence(left_img, right_img, K):
         #text to be put in the interface 
         text = "Coordinates: x ={0:02f}m y = {1:02f}m z = {2:02f}m".format(float(tvec[0]), float(tvec[1]), float(tvec[2]));
         #estimated trajectory
-        cv2.circle(traj, (draw_x, draw_y) ,1, (0,0,255), 2);
+        cv2.circle(traj, (draw_x, draw_y) ,1, (0,0,255), 2)
         #ground truth trajectory
-        cv2.circle(traj, (true_x, true_y) ,1, (255,0,0), 2);
+        cv2.circle(traj, (true_x, true_y) ,1, (255,0,0), 2)
         #displaying of the point clouds 
-        cv2.rectangle(traj, (10, 30), (550, 50), (0,0,0), cv2.FILLED);
-        cv2.putText(traj, text, (10,50), cv2.FONT_HERSHEY_PLAIN, 1, (255,255,255), 1, 8);
-        cv2.imshow( "Trajectory", traj );
+        cv2.rectangle(traj, (10, 30), (550, 50), (0,0,0), cv2.FILLED)
+        cv2.putText(traj, text, (10,50), cv2.FONT_HERSHEY_PLAIN, 1, (255,255,255), 1, 8)
+        cv2.imshow( "Trajectory", traj )
         k = cv2.waitKey(1) & 0xFF
         if k == 27: break
     #printing the maximum error
     print('Maximum Error: ', maxError)
     #saving the map
-    cv2.imwrite('smap_orb.png', traj);
+    cv2.imwrite('smap_orb.png', traj)
 
 if __name__ == '__main__':
 	#returning the left frame 
     left_img    = getLeftImage(0)
     #returning the right frame
     right_img   = getRightImage(0)
-    baseline = 0.54;
+    baseline = 0.54
     #calibrating the camera intrinsic and extrinsic parameters
     K =  getK()
     #pose estimation and visualization
