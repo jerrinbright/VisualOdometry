@@ -1,5 +1,5 @@
 # VISUAL ODOMETRY
-Development of python package/ tool for mono and stereo visual odometry. Also pose file generation in KITTI ground truth format is done. EVO evaluation tool is used for evaluation of the estimated trajectory using my visual odometry code. For more infos, go through this readme file.  
+Development of python package/ tool for mono and stereo visual odometry. Also, pose file generation in KITTI ground truth format is done. EVO evaluation tool is used for the evaluation of the estimated trajectory using my visual odometry code. For more infos, go through this readme file.  
 
 ## PROS OF THE TOOL 
 
