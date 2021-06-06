@@ -5,9 +5,7 @@ Development of python package to reconstruct indoor and outdoor environments wit
 
 - Clone the Repo.
 - Download the KITTI Dataset with ground truth poses from <a href="http://www.cvlibs.net/datasets/kitti/eval_odometry.php">here</a>. Change the dataset path in the ``` dataset.py``` file.
-- Then, run the ``` main.py``` python file. The format for running the VO is 
-
-``` python3 main.py <EXTRACTOR> <PRE-PROCESSOR> ```
+- Then, run the ``` main.py``` python file. The syntax is ``` python3 main.py <EXTRACTOR> <PRE-PROCESSOR> ```
 
 For Example, type ``` python3 main.py ORB bilateralFiltering ``` to run monocular visual odometry using Bilteral preprocessing filtering technique.
 
