@@ -59,11 +59,3 @@ _, rvec, tvec, inliers = cv2.solvePnPRansac(pnp_objP , pnp_cur, K, None)
 <br>
 Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. <br><br>
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/maps/orb.png" width="400" height="400" align="center"/>
-
-## REFERENCES
-1.) https://github.com/felixchenfy/Monocular-Visual-Odometry<br>
-2.) https://github.com/anubhavparas/visual-odometry<br>
-3.) https://github.com/polygon-software/python-visual-odometry<br>
-
-<br>
-Refer my <a href="https://jbright.tech/#projects"> website</a> for more info about visual odometry!
