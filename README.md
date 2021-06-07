@@ -20,7 +20,8 @@ For Example, type ``` python3 main.py ORB bilateralFiltering ``` to run monocula
 - As a result of running the ```main.py``` file, a ```pose.txt``` file will be generated. 
 - Pass the ```pose.txt``` into the ```main.py``` file inside ```kitti_ground``` folder in this repo.
 - Then, a new ```pose_1.txt``` file will be generated with proper delimiters set. 
-- Now, you can use this alongside the EVO repo mentioned above for comparison.
+- Now, you can use this pose file for evaluation using EVO repo.
+- You can view the results for my set of codes using EVO repo in ```result``` folder. 
  
 ## HOW TO EVALUATE THE VO?
 
