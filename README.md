@@ -21,8 +21,7 @@ For Example, type ``` python3 main.py ORB bilateralFiltering ``` to run monocula
 - Pass the ```pose.txt``` into the ```main.py``` file inside ```kitti_ground``` folder in this repo.
 - Then, a new ```pose_1.txt``` file will be generated with proper delimiters set. 
 - Now, you can use this pose file for evaluation using EVO repo.
-- You can view the results for my set of codes using EVO repo in ```result``` folder for obtaining the results as mentioned in ```results``` folder. 
- 
+- You can view the results for my set of codes using EVO repo in ```result``` folder.
 ## HOW TO EVALUATE THE VO?
 
 There are a lot of ways to evaluate a trajectory estimated. I have used EVO package forevaluating the R-P-Y; errors and the difference in the estimated pose with the ground truth. To do the same, follow the below steps: 
@@ -31,7 +30,7 @@ There are a lot of ways to evaluate a trajectory estimated. I have used EVO pack
 - In the source EVO Repo local folder, run ```pip install --editable . --upgrade --no-binary evo```
 - Proper functioning of all EVO repo function requires: numpy, matplotlib, scipy>=1.2, pandas, seaborn>=0.9, natsort, argcomplete, colorama>=0.3, pygments, pyyaml, pillow. Refer to the ```setup.py``` in the EVO repo. 
 - Then, convert the estimated trajectory into a pose file similar to the ```pose.txt``` file used in KITTI dataset for comparison. Refer to previous topic to learn about conversion. 
-- Then, type ```evo_traj kitti <file1>...<fileN> --ref=KITTI_00_gt.txt -p --plot_mode=xz``` in the EVO folders ```test/data```  directory.
+- Then, type ```evo_traj kitti <file1>...<fileN> --ref=KITTI_00_gt.txt -p --plot_mode=xz``` in the EVO folders ```test/data```  directory for obtaining the results as mentioned in ```results``` folder. 
 
 ## HOW MANY METHODS ARE ADAPTED?
 
