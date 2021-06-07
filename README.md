@@ -34,9 +34,10 @@ There are a lot of ways to evaluate a trajectory estimated. I have used EVO pack
 ## HOW MANY METHODS ARE ADAPTED?
 
 Currently, six types of extractors, two types of matchers, 3 types of pre-processing techniques are adapted in this repo. <br>
-EXTRACTORS: ORB, SIFT, SURF, BRISK, KAZE, AKAZE<br>
-MATCHERS: FLANN, BFMatcher<br>
-PRE-PROCESSING: Guassian Blur, Bilateral Filtering, 2D Image Filtering<br>
+EXTRACTORS: ORB, SIFT, SURF, BRISK, KAZE, AKAZE.<br>
+DESCRIPTORS: ORB, SIFT, SURF, BRISK, KAZE, AKAZE, FREAK, BRIEF.<br>
+MATCHERS: FLANN, BFMatcher.<br>
+PRE-PROCESSING: Guassian Blur, Bilateral Filtering, 2D Image Filtering, Average Blurring, Median Blurring, Rotating.<br>
 
 ## FEW INFOS
 
