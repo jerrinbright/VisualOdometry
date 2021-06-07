@@ -5,8 +5,9 @@ import argparse
 parser = argparse.ArgumentParser(description='Parse the video file and Extractor')
 parser.add_argument('video', type=str, help='path to video file')
 parser.add_argument('extractor', type=str, help='extractor')
-parser.add_argument('smoothening', type=str, help='smoothening')
 parser.add_argument('descriptor', type=str, help='descriptor')
+parser.add_argument('matcher', type=str, help='matcher')
+parser.add_argument('smoothening', type=str, help='smoothening')
 args = parser.parse_args()
 
 def parse():
@@ -46,5 +47,30 @@ def parse():
     if(args.descriptor == 'FLANN'):
         print('Executing FLANN')
         c = 2
+    
+    if(args.extractor == 'ORB'):
+        print('Executing ORB feature extractor')
+        d = 1
+    if(args.extractor == 'SURF'):
+        print('Executing SURF feature extractor')
+        d = 2
+    if(args.extractor == 'SIFT'):
+        print('Executing SIFT feature extractor')
+        d = 3
+    if(args.extractor == 'BRIEF'):
+        print('Executing KAZE feature extractor')
+        d = 4
+    if(args.extractor == 'AKAZE'):
+        print('Executing AKAZE feature extractor')
+        d = 5
+    if(args.extractor == 'BRISK'):
+        print('Executing BRISK feature extractor')
+        d = 6
+    if(args.extractor == 'KAZE'):
+        print('Executing KAZE feature extractor')
+        d = 7
+    if(args.extractor == 'FREAK'):
+        print('Executing AKAZE feature extractor')
+        d = 8
 
-    return(a,b,c,args)
+    return(a,b,c,d,args)
