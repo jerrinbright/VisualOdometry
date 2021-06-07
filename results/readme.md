@@ -4,9 +4,9 @@ For KITTI dataset evaluation, ```pose.txt``` file is required. Refer to the main
 
 ## RESULTS
 
-<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/traj.png" height="400" width="400">
-<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/tran.png" height="400" width="400">
-<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/R-P-Y.png" height="400" width="400">
+<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/traj.png" height="300" width="300">
+<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/trans.png" height="300" width="300">
+<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/R-P-Y.png" height="300" width="300">
 
 ## CITATION
 
