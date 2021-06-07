@@ -13,6 +13,7 @@ i j k l
 0 0 0 1
 ```
 will appear in the file as the row:
+
 ```a b c d e f g h i j k l```
 - Pass the ```pose.txt``` into the ```main.py``` file inside ```kitti_ground``` folder in this repo.
 - Then, a new ```pose_1.txt``` file will be generated with proper delimiters set. 
