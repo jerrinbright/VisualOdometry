@@ -13,8 +13,15 @@ def preprocessing(b, frame):
         frame = cv2.bilateralFilter(frame,9,75,75)
 
     if (b == 4):
+        frame = cv2.blur(frame,(5,5))
+
+    if (b == 5):
+        frame = cv2.medianBlur(frame,9,75,75)
+ 
+    if (b == 6):
+        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+
+    if (b == 7):
         frame = frame
-    
-    #frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
-    
+
     return(frame)
