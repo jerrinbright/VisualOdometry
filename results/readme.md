@@ -2,7 +2,11 @@
 
 For KITTI dataset evaluation, ```pose.txt``` file is required. Refer to the main ```readme``` to learn more about how to create a pose file.
 
-# CITATION
+## RESULTS
+
+<img src="https://github.com/jerriebright/VisualOdometry/blob/main/results/traj.png" height="500" width="500">
+
+## CITATION
 
 If you use EVO repo for research purposes, cite @
 ``` 
