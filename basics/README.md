@@ -15,15 +15,15 @@ kp1, desc1 = orb.detectAndCompute(img1, None)
 kp2, desc2 = orb.detectAndCompute(img2, None)
 ```
 Comparison of all feature extractors
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/extractors.png" width="1000" height="300" align="center"/><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/extractors.png" width="600" height="300" align="center"/><br>
 <br><br>
 Smoothening/ Blurring<br><br>
 Pre-processed the frames using various filters including Bilateral filtering, 2D Image filtering, Median blurring and gaussian filtering. The comparison of all this fltering based pre-processing vs the original extraction is shown below
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/smoothening.png" width="1000" height="300" align="center"/><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/smoothening.png" width="600" height="300" align="center"/><br>
 
 ## FEATURE MATCHING
 Experimented with BFMatcher and FLANN. Below image shows ORB+FLANN<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="1000" height="300" align="center"/><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/features_matching.png" width="600" height="300" align="center"/><br>
 ```sh
 search_params = dict(checks=100)
 index_params = dict(algorithm=6, table_number=6, key_size=12, multi_probe_level=2)
@@ -31,11 +31,11 @@ flann = cv2.FlannBasedMatcher(index_params, search_params)
 matches = flann.knnMatch(desc1,desc2,k=2)
 ```
 Comparing FLANN with BF Matcher
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/matcher.png" width="1000" height="300" align="center"/><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/matcher.png" width="600" height="300" align="center"/><br>
 
 ## FEATURE TRACKING
 KLT-based Optical Flow algorithm<br>
-<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/tracking.png" width="1000" height="300" align="center"/><br>
+<img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/tracking.png" width="600" height="300" align="center"/><br>
 ```sh
 lk_params = dict( winSize  = (21,21), maxLevel = 3, criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01))
 p2, st, err = cv2.calcOpticalFlowPyrLK(img_1, img_2, p1, None, **lk_params)
