@@ -4,8 +4,7 @@ For KITTI dataset evaluation, ```pose.txt``` file is required. Follow the below 
 
 ## HOW TO CREATE A POSE FILE?
 
-- As a result of running the ```main.py``` file, a ```pose.txt``` file will be generated. 
-- Every row of the file contains the first 3 rows of a 4x4 homogeneous pose matrix (SE(3) matrix) flattened into one line, with each value separated by a space. For example, this pose matrix:
+Every row of the file contains the first 3 rows of a 4x4 homogeneous pose matrix (SE(3) matrix) flattened into one line, with each value separated by a space. For example, this pose matrix:
 ```
 a b c d
 e f g h
@@ -16,6 +15,7 @@ will appear in the file as the row:
 ```
 a b c d e f g h i j k l
 ```
+- As a result of running the ```main.py``` file, the ```pose.txt``` file will be generated. 
 - Pass the ```pose.txt``` into the ```main.py``` file inside ```kitti_ground``` folder in this repo.
 - Then, a new ```pose_1.txt``` file will be generated with proper delimiters set. 
 - Now, you can use this pose file for evaluation using EVO repo.
