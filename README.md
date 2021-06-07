@@ -30,7 +30,8 @@ There are a lot of ways to evaluate a trajectory estimated. I have used EVO pack
 - Clone the EVO Repo (<a href="https://github.com/MichaelGrupp/evo">here</a>).
 - In the source EVO Repo local folder, run ```pip install --editable . --upgrade --no-binary evo```
 - Proper functioning of all EVO repo function requires: numpy, matplotlib, scipy>=1.2, pandas, seaborn>=0.9, natsort, argcomplete, colorama>=0.3, pygments, pyyaml, pillow. Refer to the ```setup.py``` in the EVO repo. 
-- Then, convert the estimated trajectory into a pose file similar to the ```pose.txt``` file used in KITTI dataset for comparison. 
+- Then, convert the estimated trajectory into a pose file similar to the ```pose.txt``` file used in KITTI dataset for comparison. Refer to previous topic to learn about conversion. 
+- Then, type ```evo_traj kitti <file1>...<fileN> --ref=KITTI_00_gt.txt -p --plot_mode=xz``` in the EVO folders ```test/data```  directory.
 
 ## HOW MANY METHODS ARE ADAPTED?
 
