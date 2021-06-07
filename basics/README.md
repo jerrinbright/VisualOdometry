@@ -64,12 +64,14 @@ The 3 point clouds are taken as landmarks and are obtained by Triangulation.
 
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/imgs/pnp.jpg" height="400" width="400"/><br><br>
 
-PnP is a 2 step process:<br>
+PnP is a 2 step process:
+
 1.) Direct Linear Transform (DLT)- To estimate approximate Rotational and Traslational vector<br>
 2.) Levenberg Marquardt Algorithm- To optimize the Rotational and Traslational vector obtained from DLT by reducing the reprojection error<br>
 ```sh
 _, rvec, tvec, inliers = cv2.solvePnPRansac(pnp_objP , pnp_cur, K, None)
 ```    
-<br>
-Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. <br><br>
+
+Once Rotational and Traslational vector is obtained, trajectory can be plotted in the user interface. 
+
 <img src="https://github.com/jerriebright/VISUAL-ODOMETRY/blob/main/maps/orb.png" width="400" height="400" align="center"/>
