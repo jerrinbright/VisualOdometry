@@ -5,7 +5,6 @@ import argparse
 parser = argparse.ArgumentParser(description='Parse the type of Extractor and Pre-processing Method')
 parser.add_argument('extractor', type=str, help='extractor')
 parser.add_argument('smoothening', type=str, help='smoothening')
-#parser.add_argument('descriptor', type=str, help='descriptor')
 args = parser.parse_args()
 
 def parse():
@@ -38,15 +37,17 @@ def parse():
     if(args.smoothening == 'bilateralFilter'):
         print('Executing bilateralFilter prepocessing')
         b = 3
-    if(args.smoothening == 'No'):
-        print('No prepocessing')
+    if(args.smoothening == 'averageBlur'):
+        print('Executing averageBlur prepocessing')
         b = 4
-
-    '''if(args.descriptor == 'BFMatcher'):
-        print('Executing BFMatcher')
-        c = 1
-    if(args.descriptor == 'FLANN'):
-        print('Executing FLANN')
-        c = 2'''
+    if(args.smoothening == 'medianBlur'):
+        print('Executing medianBlur prepocessing')
+        b = 5
+    if(args.smoothening == 'Rotate'):
+        print('Executing rotate prepocessing')
+        b = 6
+    if(args.smoothening == 'None'):
+        print('No prepocessing')
+        b = 7
 
     return(a,b,args)
