@@ -40,6 +40,18 @@ def parse():
     if(args.smoothening == 'bilateralFilter'):
         print('Executing bilateralFilter prepocessing')
         b = 3
+    if(args.smoothening == 'averageBlur'):
+        print('Executing averageBlur prepocessing')
+        b = 4
+    if(args.smoothening == 'medianBlur'):
+        print('Executing medianBlur prepocessing')
+        b = 5
+    if(args.smoothening == 'Rotate'):
+        print('Executing rotate prepocessing')
+        b = 6
+    if(args.smoothening == 'None'):
+        print('No prepocessing')
+        b = 7
 
     if(args.descriptor == 'BFMatcher'):
         print('Executing BFMatcher')
@@ -58,7 +70,7 @@ def parse():
         print('Executing SIFT feature extractor')
         d = 3
     if(args.extractor == 'BRIEF'):
-        print('Executing KAZE feature extractor')
+        print('Executing BRIEF feature extractor')
         d = 4
     if(args.extractor == 'AKAZE'):
         print('Executing AKAZE feature extractor')
@@ -70,7 +82,7 @@ def parse():
         print('Executing KAZE feature extractor')
         d = 7
     if(args.extractor == 'FREAK'):
-        print('Executing AKAZE feature extractor')
+        print('Executing FREAK feature extractor')
         d = 8
 
     return(a,b,c,d,args)
