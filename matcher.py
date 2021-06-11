@@ -46,3 +46,5 @@ def matching(a, c, bf, description, prev_description):
             for i,(m,n) in enumerate(matches):
                 if m.distance < 0.7*n.distance:
                     matchesMask[i]=[1,0]
+                    
+        return(matches)

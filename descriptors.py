@@ -1,9 +1,7 @@
 import numpy as np
 import cv2
 
-import descriptors
-
-def descriptor(d, frame, fps, size):
+def descriptor(d, frame):
     if (d == 1):
         orb = cv2.ORB_create(nfeatures=1500)
         descriptor = orb.compute(frame)
@@ -25,8 +23,5 @@ def descriptor(d, frame, fps, size):
     if (d == 7):
         kaze = cv2.KAZE_create()
         descriptor = kaze.compute(frame)
-    if (d == 8):
-        freak = cv2.DescriptorExtractor_create('FREAK')
-        keypoints,descriptor= freak.compute(frame,descriptors.keypoints)
     
     return(descriptor)
