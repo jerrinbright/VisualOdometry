@@ -49,7 +49,7 @@ PRE-PROCESSING: Guassian Blur, Bilateral Filtering, 2D Image Filtering, Average 
 
 ## FUTURE WORK
 
-Working on making a similar structure for Stereo Visual Odometry. You can refer to my ```main_svo.py``` which at present can be run to do any feature extraction, with any matcher and any type of pre-processing tool. Syntax to run the code ```python main_svo.py <VIDEO-PATH> <EXTRACTOR> <DESCRIPTOR> <MATCHER> <PRE-PROCESSOR>```.
+Working on making a similar structure for Stereo Visual Odometry. You can refer to my ```main_svo.py``` which at present can be run to do any feature extraction, with any matcher and any type of pre-processing tool. Syntax to run the code ```python main_svo.py <EXTRACTOR> <DESCRIPTOR> <MATCHER> <PRE-PROCESSOR>```.
 
 ## REFERENCES
 1.) https://github.com/felixchenfy/Monocular-Visual-Odometry<br>
