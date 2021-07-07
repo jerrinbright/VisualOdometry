@@ -11,7 +11,9 @@ Development of python package/ tool for mono and stereo visual odometry. Also, p
 
 - Clone the Repo.
 - Download the KITTI Dataset with ground truth poses from <a href="http://www.cvlibs.net/datasets/kitti/eval_odometry.php">here</a>. Change the dataset path in the ``` dataset.py``` file.
-You can also download one sequence (00) and its respective sequence by <a href="https://drive.google.com/file/d/19OpF7VrMP6AmQ1eC4aapsMwzvgkGlih3/view?usp=sharing"> clicking here</a> for learning purpose.
+
+(or)
+- Download one sequence (00) and its respective pose file by <a href="https://drive.google.com/file/d/19OpF7VrMP6AmQ1eC4aapsMwzvgkGlih3/view?usp=sharing"> clicking here</a> for ease (if you want to avoid the 22 gb full size files).
 - Then, run the ``` main.py``` python file. The syntax is ``` python3 main.py <EXTRACTOR> <PRE-PROCESSOR> ```
 
 For Example, type ``` python3 main.py ORB bilateralFiltering ``` to run monocular visual odometry using ORB feature extractors and Bilteral preprocessing filtering technique.
