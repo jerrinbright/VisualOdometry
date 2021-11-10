@@ -22,7 +22,7 @@ For Example, type ``` python3 main.py ORB bilateralFiltering ``` to run monocula
 - Pass the ```pose.txt``` into the ```main.py``` file inside ```kitti_ground``` folder in this repo.
 - Then, a new ```pose_1.txt``` file will be generated with proper delimiters set. 
 - Now, you can use this pose file for evaluation using EVO repo.
-- You can view the results for my set of codes using EVO repo in ```result``` folder.
+- You can view the results for my set of codes using EVO repo in ```results``` folder.
 ## HOW TO EVALUATE THE VO?
 
 There are a lot of ways to evaluate a trajectory estimated. I have used EVO package forevaluating the R-P-Y; errors and the difference in the estimated pose with the ground truth. To do the same, follow the below steps: 
